@@ -17,6 +17,8 @@
 		ADFD833C1D22ECCF00F4F133 /* PeevedPenguinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD833B1D22ECCF00F4F133 /* PeevedPenguinsTests.swift */; };
 		ADFD83471D22ECCF00F4F133 /* PeevedPenguinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD83461D22ECCF00F4F133 /* PeevedPenguinsUITests.swift */; };
 		ADFD83551D22EE9600F4F133 /* assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = ADFD83541D22EE9600F4F133 /* assets.atlas */; };
+		ADFD83571D22EF4F00F4F133 /* Bear.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADFD83561D22EF4F00F4F133 /* Bear.sks */; };
+		ADFD83591D22F25300F4F133 /* CharacterActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADFD83581D22F25300F4F133 /* CharacterActions.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		ADFD83461D22ECCF00F4F133 /* PeevedPenguinsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeevedPenguinsUITests.swift; sourceTree = "<group>"; };
 		ADFD83481D22ECCF00F4F133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADFD83541D22EE9600F4F133 /* assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = assets.atlas; sourceTree = "<group>"; };
+		ADFD83561D22EF4F00F4F133 /* Bear.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bear.sks; sourceTree = "<group>"; };
+		ADFD83581D22F25300F4F133 /* CharacterActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CharacterActions.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		ADFD83161D22ECCE00F4F133 = {
 			isa = PBXGroup;
 			children = (
+				ADFD83581D22F25300F4F133 /* CharacterActions.sks */,
 				ADFD83211D22ECCE00F4F133 /* PeevedPenguins */,
 				ADFD833A1D22ECCF00F4F133 /* PeevedPenguinsTests */,
 				ADFD83451D22ECCF00F4F133 /* PeevedPenguinsUITests */,
@@ -104,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				ADFD83221D22ECCE00F4F133 /* AppDelegate.swift */,
+				ADFD83561D22EF4F00F4F133 /* Bear.sks */,
 				ADFD83241D22ECCE00F4F133 /* GameScene.sks */,
 				ADFD83261D22ECCE00F4F133 /* GameScene.swift */,
 				ADFD83281D22ECCE00F4F133 /* GameViewController.swift */,
@@ -241,8 +247,10 @@
 				ADFD83251D22ECCE00F4F133 /* GameScene.sks in Resources */,
 				ADFD83311D22ECCF00F4F133 /* LaunchScreen.storyboard in Resources */,
 				ADFD832E1D22ECCE00F4F133 /* Assets.xcassets in Resources */,
+				ADFD83571D22EF4F00F4F133 /* Bear.sks in Resources */,
 				ADFD83551D22EE9600F4F133 /* assets.atlas in Resources */,
 				ADFD832C1D22ECCE00F4F133 /* Main.storyboard in Resources */,
+				ADFD83591D22F25300F4F133 /* CharacterActions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
