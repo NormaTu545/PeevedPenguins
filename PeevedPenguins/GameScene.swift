@@ -14,6 +14,8 @@ class GameScene: SKScene {
     var catapultArm: SKSpriteNode!
     /* Level loader holder */
     var levelNode: SKNode!
+    /* Camera helpers */
+    var cameraTarget: SKNode?
     
     override func didMoveToView(view: SKView) {
         /* Set reference to catapultArm node */
@@ -43,10 +45,23 @@ class GameScene: SKScene {
         
         /* Apply impulse to penguin */
         penguin.avatar.physicsBody?.applyImpulse(force)
+        
+        /* Set camera to follow penguin */
+        cameraTarget = penguin.avatar
     }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+        /* Check we have a valid camera target to follow */
+        if let cameraTarget = cameraTarget {
+            
+            /* Set camera position to follow target horizontally, keep vertical locked */
+            camera?.position = CGPoint(x:cameraTarget.position.x, y:camera!.position.y)
+        }
+        
+        /* Clamp camera scrolling to our visible scene area only */
+        camera?.position.x.clamp(283, 677)
     }
     
 }
