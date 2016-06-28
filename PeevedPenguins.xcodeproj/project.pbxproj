@@ -37,6 +37,7 @@
 		ADFD837D1D2324DF00F4F133 /* SKTEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD83711D2324DF00F4F133 /* SKTEffects.swift */; };
 		ADFD837E1D2324DF00F4F133 /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD83721D2324DF00F4F133 /* SKTTimingFunctions.swift */; };
 		ADFD837F1D2324DF00F4F133 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD83731D2324DF00F4F133 /* Vector3.swift */; };
+		ADFD83811D23398400F4F133 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADFD83801D23398400F4F133 /* Level1.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		ADFD83711D2324DF00F4F133 /* SKTEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTEffects.swift; sourceTree = "<group>"; };
 		ADFD83721D2324DF00F4F133 /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		ADFD83731D2324DF00F4F133 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
+		ADFD83801D23398400F4F133 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				ADFD83601D22F7EC00F4F133 /* Animals */,
+				ADFD83821D23398B00F4F133 /* Levels */,
 				ADFD83221D22ECCE00F4F133 /* AppDelegate.swift */,
 				ADFD83611D22F96B00F4F133 /* MainScene.sks */,
 				ADFD83651D22FBF500F4F133 /* MainScene.swift */,
@@ -208,6 +211,14 @@
 				ADFD83731D2324DF00F4F133 /* Vector3.swift */,
 			);
 			path = SKTUtils;
+			sourceTree = "<group>";
+		};
+		ADFD83821D23398B00F4F133 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				ADFD83801D23398400F4F133 /* Level1.sks */,
+			);
+			name = Levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +335,7 @@
 				ADFD83551D22EE9600F4F133 /* assets.atlas in Resources */,
 				ADFD83621D22F96B00F4F133 /* MainScene.sks in Resources */,
 				ADFD832C1D22ECCE00F4F133 /* Main.storyboard in Resources */,
+				ADFD83811D23398400F4F133 /* Level1.sks in Resources */,
 				ADFD83591D22F25300F4F133 /* CharacterActions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

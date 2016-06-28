@@ -12,10 +12,20 @@ class GameScene: SKScene {
     
     /* Game object connections */
     var catapultArm: SKSpriteNode!
+    /* Level loader holder */
+    var levelNode: SKNode!
     
     override func didMoveToView(view: SKView) {
         /* Set reference to catapultArm node */
         catapultArm = childNodeWithName("catapultArm") as! SKSpriteNode
+        
+        /* Set reference to the level loader node */
+        levelNode = childNodeWithName("//levelNode")
+        
+        /* Load Level 1 */
+        let resourcePath = NSBundle.mainBundle().pathForResource("Level1", ofType: "sks")
+        let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
+        levelNode.addChild(newLevel)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
