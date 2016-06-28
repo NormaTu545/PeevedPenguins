@@ -16,6 +16,7 @@
 		ADFD83311D22ECCF00F4F133 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFD832F1D22ECCF00F4F133 /* LaunchScreen.storyboard */; };
 		ADFD833C1D22ECCF00F4F133 /* PeevedPenguinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD833B1D22ECCF00F4F133 /* PeevedPenguinsTests.swift */; };
 		ADFD83471D22ECCF00F4F133 /* PeevedPenguinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD83461D22ECCF00F4F133 /* PeevedPenguinsUITests.swift */; };
+		ADFD83551D22EE9600F4F133 /* assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = ADFD83541D22EE9600F4F133 /* assets.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		ADFD83421D22ECCF00F4F133 /* PeevedPenguinsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeevedPenguinsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADFD83461D22ECCF00F4F133 /* PeevedPenguinsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeevedPenguinsUITests.swift; sourceTree = "<group>"; };
 		ADFD83481D22ECCF00F4F133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADFD83541D22EE9600F4F133 /* assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = assets.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				ADFD83281D22ECCE00F4F133 /* GameViewController.swift */,
 				ADFD832A1D22ECCE00F4F133 /* Main.storyboard */,
 				ADFD832D1D22ECCE00F4F133 /* Assets.xcassets */,
+				ADFD83541D22EE9600F4F133 /* assets.atlas */,
 				ADFD832F1D22ECCF00F4F133 /* LaunchScreen.storyboard */,
 				ADFD83321D22ECCF00F4F133 /* Info.plist */,
 			);
@@ -238,6 +241,7 @@
 				ADFD83251D22ECCE00F4F133 /* GameScene.sks in Resources */,
 				ADFD83311D22ECCF00F4F133 /* LaunchScreen.storyboard in Resources */,
 				ADFD832E1D22ECCE00F4F133 /* Assets.xcassets in Resources */,
+				ADFD83551D22EE9600F4F133 /* assets.atlas in Resources */,
 				ADFD832C1D22ECCE00F4F133 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
