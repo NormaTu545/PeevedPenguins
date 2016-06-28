@@ -19,6 +19,8 @@
 		ADFD83551D22EE9600F4F133 /* assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = ADFD83541D22EE9600F4F133 /* assets.atlas */; };
 		ADFD83571D22EF4F00F4F133 /* Bear.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADFD83561D22EF4F00F4F133 /* Bear.sks */; };
 		ADFD83591D22F25300F4F133 /* CharacterActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADFD83581D22F25300F4F133 /* CharacterActions.sks */; };
+		ADFD835B1D22F40900F4F133 /* Penguin.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADFD835A1D22F40900F4F133 /* Penguin.sks */; };
+		ADFD835D1D22F65900F4F133 /* MSReferenceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD835C1D22F65900F4F133 /* MSReferenceNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		ADFD83541D22EE9600F4F133 /* assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = assets.atlas; sourceTree = "<group>"; };
 		ADFD83561D22EF4F00F4F133 /* Bear.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bear.sks; sourceTree = "<group>"; };
 		ADFD83581D22F25300F4F133 /* CharacterActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CharacterActions.sks; sourceTree = "<group>"; };
+		ADFD835A1D22F40900F4F133 /* Penguin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Penguin.sks; sourceTree = "<group>"; };
+		ADFD835C1D22F65900F4F133 /* MSReferenceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSReferenceNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +114,10 @@
 			children = (
 				ADFD83221D22ECCE00F4F133 /* AppDelegate.swift */,
 				ADFD83561D22EF4F00F4F133 /* Bear.sks */,
+				ADFD835A1D22F40900F4F133 /* Penguin.sks */,
 				ADFD83241D22ECCE00F4F133 /* GameScene.sks */,
 				ADFD83261D22ECCE00F4F133 /* GameScene.swift */,
+				ADFD835C1D22F65900F4F133 /* MSReferenceNode.swift */,
 				ADFD83281D22ECCE00F4F133 /* GameViewController.swift */,
 				ADFD832A1D22ECCE00F4F133 /* Main.storyboard */,
 				ADFD832D1D22ECCE00F4F133 /* Assets.xcassets */,
@@ -244,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADFD835B1D22F40900F4F133 /* Penguin.sks in Resources */,
 				ADFD83251D22ECCE00F4F133 /* GameScene.sks in Resources */,
 				ADFD83311D22ECCF00F4F133 /* LaunchScreen.storyboard in Resources */,
 				ADFD832E1D22ECCE00F4F133 /* Assets.xcassets in Resources */,
@@ -276,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADFD83271D22ECCE00F4F133 /* GameScene.swift in Sources */,
+				ADFD835D1D22F65900F4F133 /* MSReferenceNode.swift in Sources */,
 				ADFD83291D22ECCE00F4F133 /* GameViewController.swift in Sources */,
 				ADFD83231D22ECCE00F4F133 /* AppDelegate.swift in Sources */,
 			);
