@@ -17,6 +17,9 @@ class GameScene: SKScene {
     /* Camera helpers */
     var cameraTarget: SKNode?
     
+    /* UI Connections */
+    var buttonRestart: MSButtonNode!
+    
     override func didMoveToView(view: SKView) {
         /* Set reference to catapultArm node */
         catapultArm = childNodeWithName("catapultArm") as! SKSpriteNode
@@ -28,6 +31,30 @@ class GameScene: SKScene {
         let resourcePath = NSBundle.mainBundle().pathForResource("Level1", ofType: "sks")
         let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
         levelNode.addChild(newLevel)
+        
+        /* Set UI connections */
+        buttonRestart = childNodeWithName("//buttonRestart") as! MSButtonNode
+        
+        /* Setup restart button selection handler */
+        buttonRestart.selectedHandler = {
+            
+            /* Grab reference to our SpriteKit view */
+            let skView = self.view as SKView!
+            
+            /* Load Game scene */
+            let scene = GameScene(fileNamed:"GameScene") as GameScene!
+            
+            /* Ensure correct aspect mode */
+            scene.scaleMode = .AspectFill
+            
+            /* Show debug */
+            skView.showsPhysics = true
+            skView.showsDrawCount = true
+            skView.showsFPS = false
+            
+            /* Restart game scene */
+            skView.presentScene(scene)
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
