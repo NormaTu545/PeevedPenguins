@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     /* Game object connections */
     var catapultArm: SKSpriteNode!
@@ -45,6 +45,9 @@ class GameScene: SKScene {
         
         /* Set UI connections */
         buttonRestart = childNodeWithName("//buttonRestart") as! MSButtonNode
+        
+        /* Set physics contact delegate */
+        physicsWorld.contactDelegate = self
         
         /* Setup restart button selection handler */
         buttonRestart.selectedHandler = {
@@ -159,6 +162,43 @@ class GameScene: SKScene {
         
         if let penguinJoint = penguinJoint { physicsWorld.removeJoint(penguinJoint) }
 
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        /* Physics contact delegate implementation */
+        
+        /* Get references to the bodies involved in the collision */
+        let contactA:SKPhysicsBody = contact.bodyA
+        let contactB:SKPhysicsBody = contact.bodyB
+        
+        /* Get references to the physics body parent SKSpriteNode */
+        let nodeA = contactA.node as! SKSpriteNode
+        let nodeB = contactB.node as! SKSpriteNode
+        
+        /* Check if either physics bodies was a seal */
+        if contactA.categoryBitMask == 2 || contactB.categoryBitMask == 2 {
+            
+            /* Was the collision more than a gentle nudge? */
+            if contact.collisionImpulse > 2.0 {
+                
+                /* Kill Seal(s) */
+                if contactA.categoryBitMask == 2 { dieSeal(nodeA) }
+                if contactB.categoryBitMask == 2 { dieSeal(nodeB) }
+            }
+        }
+    }
+    
+    func dieSeal(node: SKNode) {
+        /* Seal death*/
+        
+        /* Create our hero death action */
+        let sealDeath = SKAction.runBlock({
+            /* Remove seal node from scene */
+            node.removeFromParent()
+        })
+        
+        self.runAction(sealDeath)
+        
     }
     
     override func update(currentTime: CFTimeInterval) {
