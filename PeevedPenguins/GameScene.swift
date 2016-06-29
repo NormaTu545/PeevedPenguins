@@ -138,6 +138,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             /* Set camera to follow penguin */
             cameraTarget = penguin.avatar
+            
+            /* Remove any camera actions */
+            camera?.removeAllActions()
+            
         }
     }
     
@@ -161,7 +165,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let touchJoint = touchJoint { physicsWorld.removeJoint(touchJoint) }
         
         if let penguinJoint = penguinJoint { physicsWorld.removeJoint(penguinJoint) }
-
+        
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -225,10 +229,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             /* Set camera position to follow target horizontally, keep vertical locked */
             camera?.position = CGPoint(x:cameraTarget.position.x, y:camera!.position.y)
+            
+            /* Clamp camera scrolling to our visible scene area only */
+            camera?.position.x.clamp(283, 677)
+            
+            /* Check penguin has come to rest */
+            if cameraTarget.physicsBody?.joints.count == 0 && cameraTarget.physicsBody?.velocity.length() < 0.18 {
+                
+                cameraTarget.removeFromParent()
+                
+                /* Reset catapult arm */
+                catapultArm.physicsBody?.velocity = CGVector(dx:0, dy:0)
+                catapultArm.physicsBody?.angularVelocity = 0
+                catapultArm.zRotation = 0
+                
+                /* Reset camera */
+                let cameraReset = SKAction.moveTo(CGPoint(x:284, y:camera!.position.y), duration: 1)
+                let cameraDelay = SKAction.waitForDuration(0.1)
+                let cameraSequence = SKAction.sequence([cameraDelay,cameraReset])
+                
+                camera?.runAction(cameraSequence)
+            }
         }
         
-        /* Clamp camera scrolling to our visible scene area only */
-        camera?.position.x.clamp(283, 677)
     }
     
 }
