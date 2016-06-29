@@ -18,6 +18,7 @@ class GameScene: SKScene {
     
     /* Physics helpers */
     var touchJoint: SKPhysicsJointSpring?
+    var penguinJoint: SKPhysicsJointPin?
     
     /* Level loader holder */
     var levelNode: SKNode!
@@ -70,10 +71,10 @@ class GameScene: SKScene {
         let catapultArmBody = SKPhysicsBody (texture: catapultArm!.texture!, size: catapultArm.size)
         
         /* Set mass, needs to be heavy enough to hit the penguin with solid force */
-        catapultArmBody.mass = 0.5
+        catapultArmBody.mass = 1 //0.5
         
         /* Apply gravity to catapultArm */
-        catapultArmBody.affectedByGravity = true
+        catapultArmBody.affectedByGravity = false
         
         /* Improves physics collision handling of fast moving objects */
         catapultArmBody.usesPreciseCollisionDetection = true
@@ -116,6 +117,24 @@ class GameScene: SKScene {
                 physicsWorld.addJoint(touchJoint!)
                 
             }
+            
+            /* Add a new penguin to the scene */
+            let resourcePath = NSBundle.mainBundle().pathForResource("Penguin", ofType: "sks")
+            let penguin = MSReferenceNode(URL: NSURL (fileURLWithPath: resourcePath!))
+            addChild(penguin)
+            
+            /* Position penguin in the catapult bucket area */
+            penguin.avatar.position = catapultArm.position + CGPoint(x: 32, y: 50)
+            
+            /* Improves physics collision handling of fast moving objects */
+            penguin.avatar.physicsBody?.usesPreciseCollisionDetection = true
+            
+            /* Setup pin joint between penguin and catapult arm */
+            penguinJoint = SKPhysicsJointPin.jointWithBodyA(catapultArm.physicsBody!, bodyB: penguin.avatar.physicsBody!, anchor: penguin.avatar.position)
+            physicsWorld.addJoint(penguinJoint!)
+            
+            /* Set camera to follow penguin */
+            cameraTarget = penguin.avatar
         }
     }
     
@@ -137,6 +156,9 @@ class GameScene: SKScene {
         
         /* Let it fly!, remove joints used in catapult launch */
         if let touchJoint = touchJoint { physicsWorld.removeJoint(touchJoint) }
+        
+        if let penguinJoint = penguinJoint { physicsWorld.removeJoint(penguinJoint) }
+
     }
     
     override func update(currentTime: CFTimeInterval) {
