@@ -13,6 +13,7 @@ class GameScene: SKScene {
     /* Game object connections */
     var catapultArm: SKSpriteNode!
     var catapult: SKSpriteNode!
+    var cantileverNode: SKSpriteNode!
     
     /* Level loader holder */
     var levelNode: SKNode!
@@ -27,6 +28,8 @@ class GameScene: SKScene {
         catapultArm = childNodeWithName("catapultArm") as! SKSpriteNode
         /* Set reference to catapult node */
         catapult = childNodeWithName("catapult") as! SKSpriteNode
+        /* Set reference to cantilever node */
+        cantileverNode = childNodeWithName("cantileverNode") as! SKSpriteNode
         
         /* Set reference to the level loader node */
         levelNode = childNodeWithName("//levelNode")
@@ -78,6 +81,13 @@ class GameScene: SKScene {
         /* Pin joint catapult and catapult arm */
         let catapultPinJoint = SKPhysicsJointPin.jointWithBodyA(catapult.physicsBody!, bodyB: catapultArm.physicsBody!, anchor: CGPoint(x:220 ,y:105))
         physicsWorld.addJoint(catapultPinJoint)
+        
+        /* Spring joint catapult arm and cantilever node */
+        let catapultSpringJoint = SKPhysicsJointSpring.jointWithBodyA(catapultArm.physicsBody!, bodyB: cantileverNode.physicsBody!, anchorA: catapultArm.position + CGPoint(x:15, y:30), anchorB: cantileverNode.position)
+        physicsWorld.addJoint(catapultSpringJoint)
+        
+        /* Make this joint a bit more springy */
+        catapultSpringJoint.frequency = 1.5
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
