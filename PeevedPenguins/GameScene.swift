@@ -12,6 +12,8 @@ class GameScene: SKScene {
     
     /* Game object connections */
     var catapultArm: SKSpriteNode!
+    var catapult: SKSpriteNode!
+    
     /* Level loader holder */
     var levelNode: SKNode!
     /* Camera helpers */
@@ -23,6 +25,8 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Set reference to catapultArm node */
         catapultArm = childNodeWithName("catapultArm") as! SKSpriteNode
+        /* Set reference to catapult node */
+        catapult = childNodeWithName("catapult") as! SKSpriteNode
         
         /* Set reference to the level loader node */
         levelNode = childNodeWithName("//levelNode")
@@ -55,6 +59,25 @@ class GameScene: SKScene {
             /* Restart game scene */
             skView.presentScene(scene)
         }
+        
+        /* Create catapult arm physics body of type alpha */
+        let catapultArmBody = SKPhysicsBody (texture: catapultArm!.texture!, size: catapultArm.size)
+        
+        /* Set mass, needs to be heavy enough to hit the penguin with solid force */
+        catapultArmBody.mass = 0.5
+        
+        /* Apply gravity to catapultArm */
+        catapultArmBody.affectedByGravity = true
+        
+        /* Improves physics collision handling of fast moving objects */
+        catapultArmBody.usesPreciseCollisionDetection = true
+        
+        /* Assign the physics body to the catapult arm */
+        catapultArm.physicsBody = catapultArmBody
+        
+        /* Pin joint catapult and catapult arm */
+        let catapultPinJoint = SKPhysicsJointPin.jointWithBodyA(catapult.physicsBody!, bodyB: catapultArm.physicsBody!, anchor: CGPoint(x:220 ,y:105))
+        physicsWorld.addJoint(catapultPinJoint)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
