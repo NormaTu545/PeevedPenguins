@@ -191,6 +191,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func dieSeal(node: SKNode) {
         /* Seal death*/
         
+        /* Load our particle effect */
+        let particles = SKEmitterNode(fileNamed: "SealExplosion")!
+        
+        /* Convert node location (currently inside Level 1, to scene space) */
+        particles.position = convertPoint(node.position, fromNode: node)
+        
+        /* Restrict total particles to reduce runtime of particle */
+        particles.numParticlesToEmit = 25
+        
+        /* Add particles to scene */
+        addChild(particles)
+        
         /* Create our hero death action */
         let sealDeath = SKAction.runBlock({
             /* Remove seal node from scene */

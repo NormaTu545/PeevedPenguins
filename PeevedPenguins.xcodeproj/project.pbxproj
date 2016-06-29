@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD8FE30C1D2448FB00D32672 /* SealExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = AD8FE30A1D2448FB00D32672 /* SealExplosion.sks */; };
+		AD8FE30D1D2448FB00D32672 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8FE30B1D2448FB00D32672 /* spark.png */; };
 		ADFD83231D22ECCE00F4F133 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD83221D22ECCE00F4F133 /* AppDelegate.swift */; };
 		ADFD83251D22ECCE00F4F133 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADFD83241D22ECCE00F4F133 /* GameScene.sks */; };
 		ADFD83271D22ECCE00F4F133 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFD83261D22ECCE00F4F133 /* GameScene.swift */; };
@@ -58,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD8FE30A1D2448FB00D32672 /* SealExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SealExplosion.sks; sourceTree = "<group>"; };
+		AD8FE30B1D2448FB00D32672 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		ADFD831F1D22ECCE00F4F133 /* PeevedPenguins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeevedPenguins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADFD83221D22ECCE00F4F133 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADFD83241D22ECCE00F4F133 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				ADFD83651D22FBF500F4F133 /* MainScene.swift */,
 				ADFD83241D22ECCE00F4F133 /* GameScene.sks */,
 				ADFD83261D22ECCE00F4F133 /* GameScene.swift */,
+				AD8FE30A1D2448FB00D32672 /* SealExplosion.sks */,
+				AD8FE30B1D2448FB00D32672 /* spark.png */,
 				ADFD835C1D22F65900F4F133 /* MSReferenceNode.swift */,
 				ADFD83631D22FA5F00F4F133 /* MSButtonNode.swift */,
 				ADFD83671D2324DF00F4F133 /* SKTUtils */,
@@ -328,8 +334,10 @@
 			files = (
 				ADFD835F1D22F6DC00F4F133 /* Seal.sks in Resources */,
 				ADFD835B1D22F40900F4F133 /* Penguin.sks in Resources */,
+				AD8FE30C1D2448FB00D32672 /* SealExplosion.sks in Resources */,
 				ADFD83251D22ECCE00F4F133 /* GameScene.sks in Resources */,
 				ADFD83311D22ECCF00F4F133 /* LaunchScreen.storyboard in Resources */,
+				AD8FE30D1D2448FB00D32672 /* spark.png in Resources */,
 				ADFD832E1D22ECCE00F4F133 /* Assets.xcassets in Resources */,
 				ADFD83571D22EF4F00F4F133 /* Bear.sks in Resources */,
 				ADFD83551D22EE9600F4F133 /* assets.atlas in Resources */,
@@ -613,6 +621,7 @@
 				ADFD834D1D22ECCF00F4F133 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADFD834E1D22ECCF00F4F133 /* Build configuration list for PBXNativeTarget "PeevedPenguinsTests" */ = {
 			isa = XCConfigurationList;
@@ -621,6 +630,7 @@
 				ADFD83501D22ECCF00F4F133 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADFD83511D22ECCF00F4F133 /* Build configuration list for PBXNativeTarget "PeevedPenguinsUITests" */ = {
 			isa = XCConfigurationList;
@@ -629,6 +639,7 @@
 				ADFD83531D22ECCF00F4F133 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
