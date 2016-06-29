@@ -132,6 +132,13 @@ class GameScene: SKScene {
         }
     }
     
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        /* Called when a touch ended */
+        
+        /* Let it fly!, remove joints used in catapult launch */
+        if let touchJoint = touchJoint { physicsWorld.removeJoint(touchJoint) }
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
