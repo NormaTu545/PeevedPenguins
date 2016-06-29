@@ -211,6 +211,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.runAction(sealDeath)
         
+        /* Play SFX */
+        let sealSFX = SKAction.playSoundFileNamed("sfx_seal", waitForCompletion: false)
+        self.runAction(sealSFX)
+        
     }
     
     override func update(currentTime: CFTimeInterval) {
