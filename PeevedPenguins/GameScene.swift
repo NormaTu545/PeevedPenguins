@@ -14,6 +14,10 @@ class GameScene: SKScene {
     var catapultArm: SKSpriteNode!
     var catapult: SKSpriteNode!
     var cantileverNode: SKSpriteNode!
+    var touchNode: SKSpriteNode!
+    
+    /* Physics helpers */
+    var touchJoint: SKPhysicsJointSpring?
     
     /* Level loader holder */
     var levelNode: SKNode!
@@ -24,12 +28,11 @@ class GameScene: SKScene {
     var buttonRestart: MSButtonNode!
     
     override func didMoveToView(view: SKView) {
-        /* Set reference to catapultArm node */
+        /* Set reference to game object nodes */
         catapultArm = childNodeWithName("catapultArm") as! SKSpriteNode
-        /* Set reference to catapult node */
         catapult = childNodeWithName("catapult") as! SKSpriteNode
-        /* Set reference to cantilever node */
         cantileverNode = childNodeWithName("cantileverNode") as! SKSpriteNode
+        touchNode = childNodeWithName("touchNode") as! SKSpriteNode
         
         /* Set reference to the level loader node */
         levelNode = childNodeWithName("//levelNode")
@@ -91,23 +94,42 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        /* Add a new penguin to the scene */
-        let resourcePath = NSBundle.mainBundle().pathForResource("Penguin", ofType: "sks")
-        let penguin = MSReferenceNode(URL: NSURL (fileURLWithPath: resourcePath!))
-        addChild(penguin)
+        /* Called when a touch begins */
         
-        /* Move penguin to the catapult bucket area */
-        penguin.avatar.position = catapultArm.position + CGPoint(x: 32, y: 50)
+        /* There will only be one touch as multi touch is not enabled by default */
+        for touch in touches {
+            
+            /* Grab scene position of touch */
+            let location    = touch.locationInNode(self)
+            
+            /* Get node reference if we're touching a node */
+            let touchedNode = nodeAtPoint(location)
+            
+            /* Is it the catapult arm? */
+            if touchedNode.name == "catapultArm" {
+                
+                /* Reset touch node position */
+                touchNode.position = location
+                
+                /* Spring joint touch node and catapult arm */
+                touchJoint = SKPhysicsJointSpring.jointWithBodyA(touchNode.physicsBody!, bodyB: catapultArm.physicsBody!, anchorA: location, anchorB: location)
+                physicsWorld.addJoint(touchJoint!)
+                
+            }
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        /* Called when a touch moved */
         
-        /* Impulse vector */
-        let launchDirection = CGVector(dx: 1, dy: 0)
-        let force = launchDirection * 200 //makes sure penguins have enough force to fly
-        
-        /* Apply impulse to penguin */
-        penguin.avatar.physicsBody?.applyImpulse(force)
-        
-        /* Set camera to follow penguin */
-        cameraTarget = penguin.avatar
+        /* There will only be one touch as multi touch is not enabled by default */
+        for touch in touches {
+            
+            /* Grab scene position of touch and update touchNode position */
+            let location       = touch.locationInNode(self)
+            touchNode.position = location
+            
+        }
     }
     
     override func update(currentTime: CFTimeInterval) {
